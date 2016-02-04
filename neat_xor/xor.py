@@ -39,6 +39,8 @@ def old_more_complex_stuff():
             pop.epoch(eval_fitness, num_epochs)
         except KeyboardInterrupt:
             import pdb; pdb.set_trace()
+        except ZeroDivisionError:
+            pass
 
     print('Number of evaluations: {0}'.format(pop.total_evaluations))
 

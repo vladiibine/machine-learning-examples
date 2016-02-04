@@ -4,10 +4,10 @@ hidden_nodes=0
 output_nodes=1 
 initial_connection=fs_neat
 max_weight=3
-min_weight=1
+min_weight=-3
 feedforward=0
-weight_stdev=0.4
-activation_functions=identity
+weight_stdev=0.5
+activation_functions=abs clamped exp gauss hat identity inv log relu sigmoid sin tanh
 
 [genetic]
 pop_size=100
@@ -17,9 +17,9 @@ prob_add_node=0.9
 prob_delete_conn=0.15
 prob_delete_node=0.15
 prob_mutate_bias=0.5
-bias_mutation_power=0.31
+bias_mutation_power=0.5
 prob_mutate_response=0.31
-response_mutation_power=0.31
+response_mutation_power=0.5
 prob_mutate_weight=0.4
 prob_replace_weight=0.2
 weight_mutation_power=0.11
@@ -29,11 +29,11 @@ elitism=3
 reset_on_extinction=1
 
 [genotype compatibility]
-compatibility_threshold=2
-excess_coefficient=1.5
-disjoint_coefficient=1.3
-weight_coefficient=0.7
+compatibility_threshold=5
+excess_coefficient=1
+disjoint_coefficient=1
+weight_coefficient=1
 
 [species]
-survival_threshold=1
-max_stagnation=100000
+survival_threshold=0.1
+max_stagnation=100

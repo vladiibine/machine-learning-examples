@@ -7,6 +7,8 @@ import sys
 xor_inputs = [[0, 0], [0, 1], [1, 0], [1, 1]]
 xor_outputs = [0, 1, 1, 0]
 
+xor_inputs = [[-100],[-50],[-30],[-20], [-10], [-4],[-3],[-1],[0],[1],[2],[3],[4],[5], [20], [50], [100]]
+xor_outputs = [20293, 5143, 1883, 853, 223 ,37, 20, -2, -7, -8, -5, 2, 13, 28, 733,4843, 19693]
 def eval_fitness(genomes):
     for g in genomes:
         net = nn.create_feed_forward_phenotype(g)
@@ -36,10 +38,10 @@ def old_more_complex_stuff():
 #    pop.epoch(eval_fitness, num_epochs)
     while True:
         try:
-            pop.epoch(eval_fitness, num_epochs)
+            pop.run(eval_fitness, num_epochs)
         except KeyboardInterrupt:
             import pdb; pdb.set_trace()
-        except ZeroDivisionError:
+        except (ZeroDivisionError, ValueError, OverflowError):
             pass
 
     print('Number of evaluations: {0}'.format(pop.total_evaluations))
